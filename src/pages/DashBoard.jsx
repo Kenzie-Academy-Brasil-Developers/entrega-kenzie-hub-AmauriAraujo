@@ -10,7 +10,7 @@ export const DashBoard = ({ setUser, user }) => {
   const [token, setToken] = useState(localStorage.getItem("@TOKEN"));
 
   const validUser = (token) => {
-    user;
+
 
     if (!token) {
       navigate("/");

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { api } from "../services/api";
-import { RegisterForm } from "../components/RegisterForm/registerForm";
+import { RegisterForm } from "../components/RegisterForm/RegisterForm";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { StyledContainer } from "../styles/Grid";
-import { Header } from "../components/Header/header";
+import { Header } from "../components/Header/Header";
 
 export const Register = () => {
   const navigate = useNavigate();

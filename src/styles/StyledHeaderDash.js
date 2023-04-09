@@ -9,6 +9,10 @@ export const StyledHeaderDash = styled.header`
     align-items: center;
     justify-content: space-between;
 
+    @media (min-width: 800px) {
+      padding: 0 200px;
+    }
+
     height: 70px;
   }
 

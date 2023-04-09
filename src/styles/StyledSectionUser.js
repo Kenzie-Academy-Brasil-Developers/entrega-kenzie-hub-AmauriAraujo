@@ -2,16 +2,19 @@ import styled from "styled-components";
 
 export const StyledCardUser = styled.section`
   width: 100%;
-  height: 130px;
+  height: 131px;
   border-top: 1px solid #868e96;
   border-bottom: 1px solid #868e96;
 
+  @media (min-width: 800px) {
+    height: 118px;
+  }
   .card {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
-    height: 100px;
+    height: 90px;
     gap: 10px;
 
     h1 {
@@ -28,7 +31,7 @@ export const StyledCardUser = styled.section`
     @media (min-width: 800px) {
       flex-direction: row;
       justify-content: space-between;
-
+      padding: 0 200px;
       align-items: center;
     }
   }

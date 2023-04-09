@@ -1,10 +1,10 @@
-import { LoginForm } from "../components/LoginForm/loginForm";
+import { LoginForm } from "../components/LoginForm/LoginForm";
 import { api } from "../services/api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { StyledContainer } from "../styles/Grid";
 
-export const Login = ({ setUser, user }) => {
+export const Login = ({getUserById}) => {
   const navigate = useNavigate();
 
   const loginApp = async ({ email, password }) => {
@@ -22,13 +22,13 @@ export const Login = ({ setUser, user }) => {
           isLoading: false,
           autoClose: 2000,
         });
-        setUser(response.data.user);
+      getUserById(response.data.user.id);
         localStorage.setItem("@USERID", JSON.stringify(response.data.user.id));
         localStorage.setItem("@TOKEN", JSON.stringify(response.data.token));
 
-        setTimeout(() => {
+        
           navigate("/dashboard");
-        }, "3000");
+        
       })
 
       .catch((err) => {
