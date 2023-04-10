@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { StyledContainer } from "../styles/Grid";
 
-export const Login = ({getUserById}) => {
+export const Login = () => {
   const navigate = useNavigate();
 
   const loginApp = async ({ email, password }) => {
@@ -22,13 +22,11 @@ export const Login = ({getUserById}) => {
           isLoading: false,
           autoClose: 2000,
         });
-      getUserById(response.data.user.id);
+
         localStorage.setItem("@USERID", JSON.stringify(response.data.user.id));
         localStorage.setItem("@TOKEN", JSON.stringify(response.data.token));
 
-        
-          navigate("/dashboard");
-        
+        navigate("/dashboard");
       })
 
       .catch((err) => {

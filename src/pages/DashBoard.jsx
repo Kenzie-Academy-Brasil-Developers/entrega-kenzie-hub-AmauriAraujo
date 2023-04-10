@@ -4,14 +4,28 @@ import { useState } from "react";
 import { StyledContainer } from "../styles/Grid";
 import { HeaderDash } from "../components/HeaderDash/HeaderDash";
 import { StyledCardUser } from "../styles/StyledSectionUser";
+import { api } from "../services/api";
 
-export const DashBoard = ({ setUser, user }) => {
+export const DashBoard = ({ setUser, user, id }) => {
   const navigate = useNavigate();
   const [token, setToken] = useState(localStorage.getItem("@TOKEN"));
 
+
+  const getUserById = async () => {
+    const response = await api.get(`users/${id}`);
+
+    try {
+      setUser(response.data);
+    } catch (error) {
+      console.log(response.data.error.message);
+    }
+  };
+
+  useEffect(() => {
+  getUserById()
+  }, [id]);
+
   const validUser = (token) => {
-
-
     if (!token) {
       navigate("/");
     }
@@ -23,7 +37,7 @@ export const DashBoard = ({ setUser, user }) => {
 
   const logout = () => {
     localStorage.clear;
-    setUser([]);
+    setUser({});
     setToken("");
     localStorage.clear();
 
