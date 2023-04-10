@@ -6,7 +6,7 @@ import { HeaderDash } from "../components/HeaderDash/HeaderDash";
 import { StyledCardUser } from "../styles/StyledSectionUser";
 import { api } from "../services/api";
 
-export const DashBoard = ({ setUser, user, id }) => {
+export const DashBoard = ({ setUser, user, id,setId }) => {
   const navigate = useNavigate();
   const [token, setToken] = useState(localStorage.getItem("@TOKEN"));
 
@@ -22,6 +22,7 @@ export const DashBoard = ({ setUser, user, id }) => {
   };
 
   useEffect(() => {
+    setId(JSON.parse(localStorage.getItem("@USERID")))
   getUserById()
   }, [id]);
 

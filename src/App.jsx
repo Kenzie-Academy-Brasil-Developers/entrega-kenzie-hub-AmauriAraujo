@@ -11,15 +11,15 @@ const App = () => {
 
   const [id, setId] = useState();
 
-  useEffect(() => {
-    setId(JSON.parse(localStorage.getItem("@USERID")));
-  }, []);
+ 
+//  setId(JSON.parse(localStorage.getItem("@USERID")));
+
 
   return (
     <>
       <Global />
       <ToastContainer theme="dark"  position="bottom-left"/>
-      <RouterMain setUser={setUser} user={user} id={id} />
+      <RouterMain setUser={setUser} user={user} id={id} setId={setId} />
     </>
   );
 };
