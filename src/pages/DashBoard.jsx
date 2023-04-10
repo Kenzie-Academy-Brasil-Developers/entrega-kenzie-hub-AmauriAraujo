@@ -6,24 +6,25 @@ import { HeaderDash } from "../components/HeaderDash/HeaderDash";
 import { StyledCardUser } from "../styles/StyledSectionUser";
 import { api } from "../services/api";
 
-export const DashBoard = ({ setUser, user, id,setId }) => {
+export const DashBoard = ({ setUser, user }) => {
   const navigate = useNavigate();
   const [token, setToken] = useState(localStorage.getItem("@TOKEN"));
+  const localId = localStorage.getItem("@USERID");
+  const [id, setId] = useState(localId ? JSON.parse(localId) : null);
 
-
-  const getUserById = async () => {
+  const getUserById = async (id) => {
     const response = await api.get(`users/${id}`);
 
     try {
       setUser(response.data);
     } catch (error) {
-      console.log(response.data.error.message);
+      console.log(response.data.message);
     }
   };
 
   useEffect(() => {
-    setId(JSON.parse(localStorage.getItem("@USERID")))
-  getUserById()
+    console.log(id);
+    getUserById(id);
   }, [id]);
 
   const validUser = (token) => {

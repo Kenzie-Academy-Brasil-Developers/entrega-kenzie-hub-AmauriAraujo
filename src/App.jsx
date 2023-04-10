@@ -4,22 +4,14 @@ import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 import { Global } from "./styles/Global";
 
-import { useEffect } from "react";
-
 const App = () => {
   const [user, setUser] = useState({});
-
-  const [id, setId] = useState();
-
- 
-//  setId(JSON.parse(localStorage.getItem("@USERID")));
-
 
   return (
     <>
       <Global />
-      <ToastContainer theme="dark"  position="bottom-left"/>
-      <RouterMain setUser={setUser} user={user} id={id} setId={setId} />
+      <ToastContainer theme="dark" position="bottom-left" />
+      <RouterMain setUser={setUser} user={user} />
     </>
   );
 };

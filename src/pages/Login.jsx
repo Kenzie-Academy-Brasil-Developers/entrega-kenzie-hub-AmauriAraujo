@@ -24,6 +24,7 @@ export const Login = () => {
         });
 
         localStorage.setItem("@USERID", JSON.stringify(response.data.user.id));
+
         localStorage.setItem("@TOKEN", JSON.stringify(response.data.token));
 
         navigate("/dashboard");
