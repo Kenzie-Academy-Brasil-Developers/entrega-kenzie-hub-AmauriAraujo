@@ -1,10 +1,7 @@
 import { z } from "zod";
 
 export const validateFormLogin = z.object({
-  email: z
-    .string()
-    .min(1, "O e-mail é obrigatório")
-    .email("Forneça um e-mail válido"),
+  email: z.string().nonempty("O e-mail é obrigatório"),
 
-  password: z.string().min(1, "Senha Obrigatória"),
+  password: z.string().nonempty("Senha Obrigatória"),
 });

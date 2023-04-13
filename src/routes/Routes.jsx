@@ -1,14 +1,29 @@
 import { Route, Routes } from "react-router-dom";
 import { Login } from "../pages/Login";
 import { Register } from "../pages/Register";
+import { UserProvider } from "../providers/UserContext ";
+import { TechProvider } from "../providers/TechContext";
 import { DashBoard } from "../pages/DashBoard";
+import { ProtectedRoutes } from "../components/ProtectRoutes/ProtectedRoutes";
 
-export const RouterMain = ({ setUser, user}) => {
+export const RouterMain = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Login/>}/> 
-      <Route path="/register" element={<Register />}/> 
-      <Route path="/dashboard" element={<DashBoard setUser={setUser} user={user} />}/>
-    </Routes>
+    <UserProvider>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        <Route element={<ProtectedRoutes />}>
+          <Route
+            path="/dashboard"
+            element={
+              <TechProvider>
+                <DashBoard />
+              </TechProvider>
+            }
+          />
+        </Route>
+      </Routes>
+    </UserProvider>
   );
 };

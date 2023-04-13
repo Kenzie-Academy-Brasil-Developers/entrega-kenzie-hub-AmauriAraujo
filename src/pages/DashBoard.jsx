@@ -1,50 +1,17 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext } from "react";
 import { StyledContainer } from "../styles/Grid";
 import { HeaderDash } from "../components/HeaderDash/HeaderDash";
 import { StyledCardUser } from "../styles/StyledSectionUser";
-import { api } from "../services/api";
+import { UserContext } from "../providers/UserContext ";
+import { NewTechModalForm } from "../components/NewTechForm/NewTechForm";
+import { TechContext } from "../providers/TechContext";
+import { TechList } from "../components/TechList/TechList";
 
-export const DashBoard = ({ setUser, user }) => {
-  const navigate = useNavigate();
-  const [token, setToken] = useState(localStorage.getItem("@TOKEN"));
-  const localId = localStorage.getItem("@USERID");
-  const [id, setId] = useState(localId ? JSON.parse(localId) : null);
 
-  const getUserById = async (id) => {
-    const response = await api.get(`users/${id}`);
+export const DashBoard = () => {
+  const { logout, user } = useContext(UserContext);
 
-    try {
-      setUser(response.data);
-    } catch (error) {
-      console.log(response.data.message);
-    }
-  };
-
-  useEffect(() => {
-    console.log(id);
-    getUserById(id);
-  }, [id]);
-
-  const validUser = (token) => {
-    if (!token) {
-      navigate("/");
-    }
-  };
-
-  useEffect(() => {
-    validUser(token);
-  }, []);
-
-  const logout = () => {
-    localStorage.clear;
-    setUser({});
-    setToken("");
-    localStorage.clear();
-
-    navigate("/");
-  };
+  const { isOpen, setIsOpen } = useContext(TechContext);
 
   return (
     <>
@@ -58,6 +25,18 @@ export const DashBoard = ({ setUser, user }) => {
           </div>
         </StyledContainer>
       </StyledCardUser>
+
+
+<TechList/>
+      {isOpen ? <NewTechModalForm /> : null}
+
+      <button
+        onClick={() => {
+          setIsOpen(true);
+        }}
+      >
+        Open
+      </button>
     </>
   );
 };
