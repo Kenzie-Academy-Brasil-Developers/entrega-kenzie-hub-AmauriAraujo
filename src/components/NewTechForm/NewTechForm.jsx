@@ -5,7 +5,7 @@ import { TechContext } from "../../providers/TechContext";
 import { useContext } from "react";
 
 export const NewTechModalForm = () => {
-  const { setIsOpen,createNewTech } = useContext(TechContext);
+  const { setIsOpen,createNewTech} = useContext(TechContext);
   const {
     register,
     handleSubmit,
@@ -14,6 +14,9 @@ export const NewTechModalForm = () => {
   const submit = (data) => {
     createNewTech(data);
   };
+
+
+ 
 
   return (
     <div role="dialog">

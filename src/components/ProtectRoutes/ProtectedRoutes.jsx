@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import { UserContext } from "../../providers/UserContext ";
 
 export const ProtectedRoutes = () => {
-  const { navigate, loading, getUserById } = useContext(UserContext);
+  const { navigate, loading, getUserById} = useContext(UserContext);
 
   useEffect(() => {
     getUserById();
@@ -12,16 +12,16 @@ export const ProtectedRoutes = () => {
 
 
 
-//   if (loading) {
+  // if (loading) {
     
-//     return
+  //   return
 
-//     (
+  //   (
 
-//     <div>Carregando...</div>
+  //   <div>Carregando...</div>
 
-//     )
-//   }
-// // return <div>Carregado</div>
+  //   )
+  // }
+
   return <>{getUserById ? <Outlet /> : null}</>;
 };
