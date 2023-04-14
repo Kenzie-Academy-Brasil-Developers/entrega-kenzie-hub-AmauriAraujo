@@ -6,21 +6,17 @@ import { UserContext } from "../providers/UserContext ";
 import { NewTechModalForm } from "../components/NewTechForm/NewTechForm";
 import { TechContext } from "../providers/TechContext";
 import { TechList } from "../components/TechList/TechList";
-import{ModalUpDell}from"../components/ModalUpDell/ModalUpdell"
-
+import { ModalUpDell } from "../components/ModalUpDell/ModalUpdell";
+import { StyledSection } from "../styles/StyledSection";
 
 export const DashBoard = () => {
   const { logout, user } = useContext(UserContext);
 
-  const { isOpen, setIsOpen,currentTech} = useContext(TechContext);
+  const { isOpen, currentTech } = useContext(TechContext);
 
-
-
- 
   return (
     <>
       <HeaderDash logout={logout} />
-      
 
       <StyledCardUser>
         <StyledContainer>
@@ -31,19 +27,14 @@ export const DashBoard = () => {
         </StyledContainer>
       </StyledCardUser>
 
+      <StyledContainer>
+        <StyledSection>
+          <TechList />
+        </StyledSection>
+      </StyledContainer>
 
-<TechList/>
-      {isOpen ? <NewTechModalForm/> : null}
-      {currentTech ? <ModalUpDell/> : null}
-
-
-      <button
-        onClick={() => {
-          setIsOpen(true);
-        }}
-      >
-        Open
-      </button>
+      {isOpen ? <NewTechModalForm /> : null}
+      {currentTech ? <ModalUpDell /> : null}
     </>
   );
 };

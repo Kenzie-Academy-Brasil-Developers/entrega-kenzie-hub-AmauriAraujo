@@ -1,26 +1,30 @@
-import { useContext, useEffect } from "react";
-import { TechCard } from "../TechCard/TechCard"
+import { useContext } from "react";
+import { TechCard } from "../TechCard/TechCard";
 import { TechContext } from "../../providers/TechContext";
+import btmais from"../../assets/+.svg"
+import { StyledTechList } from "../../styles/StyledTechList";
+export const TechList = () => {
+  const { techList, setIsOpen } = useContext(TechContext);
 
+  return (
+    <>
+      <div className="header__list">
+        <h2>Tecnologias</h2>
 
-export const TechList=()=>{
-   
-
-    const {techList} =useContext(TechContext);
-    
-
-
-
-    return (
-        <ul>
-
-        {techList && techList.map(tech=>{
-            return <TechCard key={tech.id} tech={tech}/>
-        })}
-
-        
-
-
-        </ul>
-    )
-}
+        <button id="btn"
+          onClick={() => {
+            setIsOpen(true);
+          }}
+        >
+         <img src={btmais}/>
+        </button>
+      </div>
+      <StyledTechList>
+        {techList &&
+          techList.map((tech) => {
+            return <TechCard key={tech.id} tech={tech} />;
+          })}
+      </StyledTechList>
+    </>
+  );
+};

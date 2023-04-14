@@ -12,6 +12,10 @@ export const Global = createGlobalStyle`
     background-color:black;
     color:white;
 }
+
+ul,ol{
+    list-Style:none
+}
 fieldset{
     border: none;
     
@@ -131,5 +135,48 @@ option{
 }
 }
 
+.div__default{
+    position:absolute;
+    Width:100%;
+Height:100%;
+top:0px;
+background-color:#12121480;
 
+Height:100%;
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top:200px;
+}
+
+.header__list{
+
+   
+height:50px;
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+
+
+    h2{
+        color:#F8F9FA;
+        font-weight:600;
+        font-size:0.714rem;
+    }
+}
+
+  #btn{
+width: 32.49px;
+height:32px;
+border-radius:
+4px;
+background-color:#212529;
+border:1px solid #212529;
+
+:hover{
+    background-color:#343B41;
+    border-color:#343B41;
+}
+  }
 `;

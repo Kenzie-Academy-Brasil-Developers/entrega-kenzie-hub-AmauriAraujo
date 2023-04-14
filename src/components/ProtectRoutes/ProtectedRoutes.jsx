@@ -4,16 +4,14 @@ import { Outlet } from "react-router-dom";
 import { UserContext } from "../../providers/UserContext ";
 
 export const ProtectedRoutes = () => {
-  const { navigate, loading, getUserById} = useContext(UserContext);
+  const { navigate, loading, getUserById } = useContext(UserContext);
 
   useEffect(() => {
     getUserById();
   }, []);
 
-
-
   // if (loading) {
-    
+
   //   return
 
   //   (

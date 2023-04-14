@@ -24,11 +24,11 @@ export const TechProvider = ({ children }) => {
         },
       });
 
-      toast.success("Tecnologia cadastrada!");
+      toast.success("Tecnologia cadastrada!", { autoClose: 2000 });
 
       setIsOpen(false);
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response.data.message, { autoClose: 2000 });
     }
   };
 
@@ -52,13 +52,17 @@ export const TechProvider = ({ children }) => {
     setCurrentTech(null);
   };
 
-  const updateTech = async (id, data) => {
+  const updateTech = async (id, { status }) => {
     const token = JSON.parse(localStorage.getItem("@TOKEN"));
-    const response = await api.put(`users/techs/${id}`, data, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await api.put(
+      `users/techs/${id}`,
+      { status: status },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     toast.success("Tecnologia atualizada", { autoClose: 2000 });
 

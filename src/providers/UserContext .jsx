@@ -1,9 +1,8 @@
-import { createContext} from "react";
+import { createContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 import { toast } from "react-toastify";
 import { useState } from "react";
-import jwtDecode from "jwt-decode";
 
 export const UserContext = createContext({});
 
@@ -60,7 +59,7 @@ export const UserProvider = ({ children }) => {
       });
 
       setUser(response.data);
-      
+
       setLoading(false);
     } catch (error) {
       console.log(error.response.data.message);
@@ -117,7 +116,6 @@ export const UserProvider = ({ children }) => {
         loading,
         id,
         navigate,
-        
       }}
     >
       {children}

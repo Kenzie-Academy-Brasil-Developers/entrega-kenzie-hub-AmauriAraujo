@@ -8,5 +8,7 @@ export const StyledContainer = styled.div`
   margin-top: ${({ marginContainerTop }) =>
     marginContainerTop ? marginContainerTop : 0}px;
 
+
+  
   padding: 10px;
 `;
