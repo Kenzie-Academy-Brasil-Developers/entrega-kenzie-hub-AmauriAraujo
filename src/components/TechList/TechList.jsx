@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { TechCard } from "../TechCard/TechCard";
 import { TechContext } from "../../providers/TechContext";
 import btmais from"../../assets/+.svg"
-import { StyledTechList } from "../../styles/StyledTechList";
+import { StyledTechList } from "./StyledTechList";
 export const TechList = () => {
   const { techList, setIsOpen } = useContext(TechContext);
 

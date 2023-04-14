@@ -3,8 +3,7 @@ import { useForm } from "react-hook-form";
 import { formValidateTech } from "../../services/formTechVlidate";
 import { TechContext } from "../../providers/TechContext";
 import { useContext } from "react";
-import { StyledModal } from "../../styles/StyledModal";
-import { StyledContainer } from "../../styles/Grid";
+import { StyledModal } from "../ModalUpDell/StyledModal";
 
 export const NewTechModalForm = () => {
   const { setIsOpen, createNewTech } = useContext(TechContext);
@@ -18,7 +17,7 @@ export const NewTechModalForm = () => {
   };
 
   return (
-    <StyledContainer>
+
       <div className="div__default">
         <StyledModal role="dialog">
           <div className="modal__title">
@@ -52,6 +51,6 @@ export const NewTechModalForm = () => {
           </form>
         </StyledModal>
       </div>
-    </StyledContainer>
+  
   );
 };

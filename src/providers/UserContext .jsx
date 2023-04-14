@@ -7,7 +7,7 @@ import { useState } from "react";
 export const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
 
   const localId = localStorage.getItem("@USERID");
   const [id, setId] = useState(localId ? JSON.parse(localId) : null);
@@ -59,7 +59,7 @@ export const UserProvider = ({ children }) => {
       });
 
       setUser(response.data);
-
+      navigate("/dashboard");
       setLoading(false);
     } catch (error) {
       console.log(error.response.data.message);

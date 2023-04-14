@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { validateFormLogin } from "../../services/form ValidateLogin";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { StyledForm } from "../../styles/StyledForm";
+import { StyledForm } from "./StyledForm";
 import { StyledContainer } from "../../styles/Grid";
 import { Link } from "react-router-dom";
 import { Header } from "../Header/Header";

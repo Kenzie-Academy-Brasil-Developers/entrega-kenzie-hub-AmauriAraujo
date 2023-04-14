@@ -2,7 +2,6 @@ import styled, { createGlobalStyle } from "styled-components";
 
 export const Global = createGlobalStyle`
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap');
 
 *{
     font-family: 'Inter', sans-serif;
@@ -138,15 +137,14 @@ option{
 .div__default{
     position:absolute;
     Width:100%;
-Height:100%;
-top:0px;
-background-color:#12121480;
-
-Height:100%;
-display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top:200px;
+    Height:100%;
+    top:0px;
+    background-color:#12121480;
+    Height:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top:200px;
 }
 
 .header__list{
@@ -167,12 +165,12 @@ height:50px;
 }
 
   #btn{
-width: 32.49px;
-height:32px;
-border-radius:
-4px;
-background-color:#212529;
-border:1px solid #212529;
+    width: 32.49px;
+    height:32px;
+    border-radius:
+    4px;
+    background-color:#212529;
+    border:1px solid #212529;
 
 :hover{
     background-color:#343B41;

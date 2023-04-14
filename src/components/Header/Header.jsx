@@ -1,5 +1,5 @@
 import Logo from "../../assets/Logo.svg";
-import { StyledHeaderLogin } from "../../styles/StyledHeaderLogin";
+import { StyledHeaderLogin } from "./StyledHeaderLogin";
 
 export const Header = () => {
   return (

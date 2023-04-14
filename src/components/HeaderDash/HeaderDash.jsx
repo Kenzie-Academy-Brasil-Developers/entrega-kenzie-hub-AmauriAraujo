@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Logo from "../../assets/Logo.svg";
 import { StyledContainer } from "../../styles/Grid";
-import { StyledHeaderDash } from "../../styles/StyledHeaderDash";
+import { StyledHeaderDash } from "./StyledHeaderDash";
 
 export const HeaderDash = ({ logout }) => {
   return (

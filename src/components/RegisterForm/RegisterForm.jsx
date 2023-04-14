@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { validateForm } from "../../services/formValidate";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { StyledRegisterForm } from "../../styles/StyledRegisterForm";
+import { StyledRegisterForm } from "./StyledRegisterForm";
 import { StyledContainer } from "../../styles/Grid";
 import { HeaderRegister } from "../HeaderRegister/HeaderRegister";
 

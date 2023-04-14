@@ -24,6 +24,8 @@ export const TechProvider = ({ children }) => {
         },
       });
 
+      setTechList([...techList, response.data]);
+
       toast.success("Tecnologia cadastrada!", { autoClose: 2000 });
 
       setIsOpen(false);
@@ -50,10 +52,33 @@ export const TechProvider = ({ children }) => {
     toast.success("Tecnologia deletada!", { autoClose: 2000 });
 
     setCurrentTech(null);
+
+    const newTechList = techList.filter((tech) => {
+      return tech.id != id;
+    });
+
+    setTechList(newTechList);
   };
 
-  const updateTech = async (id, { status }) => {
+  const updateTech = async (currentTech, { status }) => {
     const token = JSON.parse(localStorage.getItem("@TOKEN"));
+    const id = currentTech.id;
+
+    switch (currentTech.status === status) {
+      case true:
+        return toast.error("Esse é seu nível atual");
+    }
+
+    switch (currentTech.status === "Intermediário" && status === "Iniciante") {
+      case true:
+        return toast.error("Você não pode baixar seu status");
+    }
+
+    switch (currentTech.status === "Avançado" && status != "Avançado") {
+      case true:
+        return toast.error("Você não pode baixar seu status");
+    }
+
     const response = await api.put(
       `users/techs/${id}`,
       { status: status },
@@ -64,6 +89,11 @@ export const TechProvider = ({ children }) => {
       }
     );
 
+    const newTechList = techList.filter((tech) => {
+      return tech.id != id;
+    });
+
+    setTechList([...newTechList, response.data]);
     toast.success("Tecnologia atualizada", { autoClose: 2000 });
 
     setCurrentTech(null);

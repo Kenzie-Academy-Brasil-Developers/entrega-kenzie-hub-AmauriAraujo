@@ -1,13 +1,13 @@
 import { useContext, useEffect } from "react";
-import { StyledContainer } from "../styles/Grid";
-import { HeaderDash } from "../components/HeaderDash/HeaderDash";
-import { StyledCardUser } from "../styles/StyledSectionUser";
-import { UserContext } from "../providers/UserContext ";
-import { NewTechModalForm } from "../components/NewTechForm/NewTechForm";
-import { TechContext } from "../providers/TechContext";
-import { TechList } from "../components/TechList/TechList";
-import { ModalUpDell } from "../components/ModalUpDell/ModalUpdell";
-import { StyledSection } from "../styles/StyledSection";
+import { StyledContainer } from "../../styles/Grid";
+import { HeaderDash } from "../../components/HeaderDash/HeaderDash";
+import { StyledCardUser } from "./StyledSectionUser";
+import { UserContext } from "../../providers/UserContext ";
+import { NewTechModalForm } from "../../components/NewTechForm/NewTechForm";
+import { TechContext } from "../../providers/TechContext";
+import { TechList } from "../../components/TechList/TechList";
+import { ModalUpDell } from "../../components/ModalUpDell/ModalUpdell";
+import { StyledSection } from "./StyledSection";
 
 export const DashBoard = () => {
   const { logout, user } = useContext(UserContext);

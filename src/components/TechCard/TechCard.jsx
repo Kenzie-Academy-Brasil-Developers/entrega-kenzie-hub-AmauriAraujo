@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { TechContext } from "../../providers/TechContext";
+import { StyledCard } from "./StyledCard";
 
-import { StyledCard } from "../../styles/StyledCard";
 export const TechCard = ({ tech }) => {
   const { setCurrentTech } = useContext(TechContext);
   return (

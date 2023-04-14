@@ -1,6 +1,6 @@
 import Logo from "../../assets/Logo.svg";
 import { Link } from "react-router-dom";
-import { StyledHeaderRegister } from "../../styles/StyledHeaderRegister";
+import { StyledHeaderRegister } from "./StyledHeaderRegister";
 
 export const HeaderRegister = () => {
   return (
