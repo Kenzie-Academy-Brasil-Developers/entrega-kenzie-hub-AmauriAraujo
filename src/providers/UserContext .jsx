@@ -15,7 +15,7 @@ export const UserProvider = ({ children }) => {
 
   const [loading, setLoading] = useState(true);
 
-  const loginApp = async ({ email, password }) => {
+  const login = async ({ email, password }) => {
     const response = await api
       .post("sessions", {
         email: email,
@@ -44,12 +44,8 @@ export const UserProvider = ({ children }) => {
       });
   };
 
-  const getUserById = async () => {
+  const autoLogin = async () => {
     const token = JSON.parse(localStorage.getItem("@TOKEN"));
-
-    if (!token) {
-      return navigate("/");
-    }
 
     try {
       const response = await api.get("profile", {
@@ -59,12 +55,14 @@ export const UserProvider = ({ children }) => {
       });
 
       setUser(response.data);
-      navigate("/dashboard");
       setLoading(false);
+      navigate("/dashboard");
     } catch (error) {
       console.log(error.response.data.message);
 
       setLoading(false);
+
+      navigate("/");
     }
   };
 
@@ -77,7 +75,7 @@ export const UserProvider = ({ children }) => {
     navigate("/");
   };
 
-  const loadApi = async ({
+  const registerUser = async ({
     name,
     email,
     password,
@@ -108,14 +106,15 @@ export const UserProvider = ({ children }) => {
   return (
     <UserContext.Provider
       value={{
-        loginApp,
-        getUserById,
+        login,
+        autoLogin,
         logout,
         user,
-        loadApi,
+        registerUser,
         loading,
         id,
         navigate,
+        setLoading,
       }}
     >
       {children}

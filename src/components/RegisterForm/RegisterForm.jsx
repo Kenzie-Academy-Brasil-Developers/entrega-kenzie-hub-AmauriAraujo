@@ -5,7 +5,7 @@ import { StyledRegisterForm } from "./StyledRegisterForm";
 import { StyledContainer } from "../../styles/Grid";
 import { HeaderRegister } from "../HeaderRegister/HeaderRegister";
 
-export const RegisterForm = ({ loadApi }) => {
+export const RegisterForm = ({ registerUser }) => {
   const {
     register,
     handleSubmit,
@@ -15,7 +15,7 @@ export const RegisterForm = ({ loadApi }) => {
   });
 
   const submit = (formData) => {
-    loadApi(formData);
+    registerUser(formData);
   };
 
   return (

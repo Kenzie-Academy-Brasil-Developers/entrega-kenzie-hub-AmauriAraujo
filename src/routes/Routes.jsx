@@ -11,16 +11,13 @@ export const RouterMain = () => {
       <Route path="/" element={<Login />} />
       <Route path="/register" element={<Register />} />
 
-      <Route element={<ProtectedRoutes />}>
-        <Route
-          path="/dashboard"
-          element={
-            <TechProvider>
-              <DashBoard />
-            </TechProvider>
-          }
-        />
-      </Route>
+
+      <Route path="/dashboard" element={<ProtectedRoutes/>}>
+         <Route index element={<TechProvider><DashBoard/></TechProvider>}/>
+      </Route> 
+
+
+     
     </Routes>
   );
 };

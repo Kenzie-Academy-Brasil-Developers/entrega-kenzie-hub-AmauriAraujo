@@ -10,9 +10,11 @@ import { ModalUpDell } from "../../components/ModalUpDell/ModalUpdell";
 import { StyledSection } from "./StyledSection";
 
 export const DashBoard = () => {
-  const { logout, user } = useContext(UserContext);
+  const { logout, user} = useContext(UserContext);
 
   const { isOpen, currentTech } = useContext(TechContext);
+
+
 
   return (
     <>

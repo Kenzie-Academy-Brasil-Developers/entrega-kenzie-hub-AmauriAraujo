@@ -14,6 +14,7 @@ export const TechProvider = ({ children }) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
+
   const createNewTech = async (data) => {
     const token = JSON.parse(localStorage.getItem("@TOKEN"));
 
@@ -110,6 +111,7 @@ export const TechProvider = ({ children }) => {
         currentTech,
         deleteTech,
         updateTech,
+        
       }}
     >
       {children}
