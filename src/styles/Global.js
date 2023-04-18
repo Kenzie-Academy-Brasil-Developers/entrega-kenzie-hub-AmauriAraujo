@@ -160,7 +160,8 @@ height:50px;
     h2{
         color:#F8F9FA;
         font-weight:600;
-        font-size:0.714rem;
+        font-size:1rem;
+        
     }
 }
 
